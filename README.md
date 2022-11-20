@@ -1,4 +1,4 @@
-# MERN-Blog-App
+# MERN-Blog-Website
 <br>
 <hr>
 <h2>full-stack simple blog Website using MERN Stack.</h2>
