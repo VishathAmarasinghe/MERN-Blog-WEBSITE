@@ -1,0 +1,102 @@
+.singlePost{
+    flex: 9;
+}
+.singlePostWrapper{
+    padding: 20px;
+    padding-right: 0;
+}
+
+.singlePostImg{
+    width: 100%;
+    height: 300px;
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+.singlePostTitle{
+    text-align: center;
+    margin: 10px;
+    font-family:'Lora', serif; ;
+    font-size: 28px;
+}
+.singlePostEdit{
+    float: right;
+    font-size: 16px;
+}
+
+.singlePostIcon{
+    margin-right: 10px;
+    cursor: pointer;
+}
+.singlePostIcon:first-child{
+    color: teal;
+}
+
+.singlePostIcon:last-child{
+    color: tomato;
+}
+
+.singlePostInfo{
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 16px;
+    color: #3969;
+    font-family: 'Varela', sans-serif;
+}
+
+.singlePostDesc{
+    color: #666;
+    font-size: 16px;
+    line-height: 25px;
+}
+
+.singlePostDesc::first-letter{
+    margin-left:20px;
+    font-size: 30px;
+    font-weight: 600;
+}
+
+.postUpdate{
+    width: 100%;
+    height: 25px;
+    font-size: 25px;
+    border: none;
+    border-bottom: 2px solid darkgray;
+    margin-top: 25px;
+    margin-bottom: 10px;
+    line-height: 10px;
+}
+
+.postUpdate:focus{
+    outline: none;
+}
+
+.titledesc{
+    font-family:'Lora', serif; 
+}
+
+.desc{
+    font-size: 20px;
+    text-align: justify;
+    display: flex;
+    align-items: center;
+}
+
+.updateButton{
+    width: 100%;
+    height: 45px;
+    border-radius: 5px;
+    /* border: none; */
+    /* border-bottom: 2px solid darkgray; */
+    margin-top: 25px;
+    /* line-height: 5px; */
+    background-color: green;
+    border: 2px solid rgb(107, 118, 107);
+}
+
+.abc{
+    line-height: 25px;
+    height: 180px;
+    font-size: 15px;
+}
