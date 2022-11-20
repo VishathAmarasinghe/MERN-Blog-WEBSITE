@@ -24,7 +24,11 @@
 <br>
 <hr>
 <h2>Technologies</h2>
+<br>
 FrontEnd -ReactJs
+<br>
 BackEnd -ExpressJs/Node
+<br>
 Database- MongoDB Atlas(CRUD operations)
+<br>
 API -REST API(CRUD Operations)
