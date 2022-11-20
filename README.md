@@ -5,7 +5,7 @@
 <br>
 <img src="GitImages/one.png" >
 <br>
-<img src="GitImages/>two.png" >
+<img src="GitImages/two.png" >
 <hr>
 <h2>Features</h2>
 1.Add new user(Register)
