@@ -2,6 +2,7 @@ import { useContext, useState } from "react";
 import "./write.css";
 import axios from "axios";
 import { Context } from "../../context/Context";
+import api from "../../API";
 
 export default function Write() {
   const [title, setTitle] = useState("");
@@ -11,33 +12,33 @@ export default function Write() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("title Name "+title);
-    console.log("description Name "+desc);
-    console.log("user Name "+user);
-    let filename="";
-    try{
+    console.log("title Name " + title);
+    console.log("description Name " + desc);
+    console.log("user Name " + user);
+    let filename = "";
+    try {
       if (file) {
-      const data =new FormData();
-      filename = Date.now() + file.name;
-      data.append("name", filename);
-      data.append("file", file);
-      try {
-        await axios.post("/upload", data);
-      } catch (err) {
-        console.log(err);
+        const data = new FormData();
+        filename = Date.now() + file.name;
+        data.append("name", filename);
+        data.append("file", file);
+        try {
+          await api.post("/upload", data);
+        } catch (err) {
+          console.log(err);
+        }
       }
+      const response = await api.post("/posts", {
+        title: title,
+        description: desc,
+        username: user.username,
+        photo: filename,
+      });
+      console.log(response);
+      window.location.replace("/post/" + response.data._id);
+    } catch (error) {
+      console.log("getting error", error);
     }
-    const response=await axios.post('/posts',{
-      title:title,
-      description:desc,
-      username:user.username,
-      photo:filename,
-    })
-    console.log(response);
-    window.location.replace("/post/" + response.data._id);
-  }catch(error){
-    console.log("getting error",error);
-  }
 
     // const newPost = {
     //   username: user.username,
@@ -48,7 +49,7 @@ export default function Write() {
     // console.log(newPost);
     // try {
     //   const res=await axios.post("/posts",newPost);
-    
+
     // } catch (err) {
     //   console.log("error occured")
     // }
@@ -74,7 +75,7 @@ export default function Write() {
             placeholder="Title"
             className="writeInput"
             autoFocus={true}
-            onChange={e=>setTitle(e.target.value)}
+            onChange={(e) => setTitle(e.target.value)}
           />
         </div>
         <div className="writeFormGroup">
@@ -82,7 +83,7 @@ export default function Write() {
             placeholder="Tell your story..."
             type="text"
             className="writeInput writeText"
-            onChange={e=>setDesc(e.target.value)}
+            onChange={(e) => setDesc(e.target.value)}
           ></textarea>
         </div>
         <button className="writeSubmit" type="submit">

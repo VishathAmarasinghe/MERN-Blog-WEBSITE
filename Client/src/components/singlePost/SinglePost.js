@@ -4,6 +4,7 @@ import "./SinglePost.css";
 import singlepostImage from "././articalImage.jpg";
 import axios from "axios";
 import { Context } from "../../context/Context";
+import api from "../../API";
 
 export default function SinglePost() {
   const [post, setpost] = useState({});
@@ -18,7 +19,7 @@ export default function SinglePost() {
 
   useEffect(() => {
     const getPost = async () => {
-      const result = await axios.get(`/posts/${path}`);
+      const result = await api.get(`/posts/${path}`);
       console.log(result);
       setpost(result.data);
       setupdateDesc(result.data.description);
@@ -29,14 +30,14 @@ export default function SinglePost() {
 
   const handelDelete = () => {
     try {
-      axios.delete("/posts/" + path, { data: { username: user.username } });
+      api.delete("/posts/" + path, { data: { username: user.username } });
       window.location.replace("/");
     } catch (error) {}
   };
 
   const updateCurrentPost = async () => {
     try {
-      await axios.put("/posts/" + path, {
+      await api.put("/posts/" + path, {
         username: user.username,
         description: updateDesc,
         title: updatetitle,

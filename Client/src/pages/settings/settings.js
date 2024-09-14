@@ -3,6 +3,7 @@ import Sidebar from "../../components/sidebar/sidebar";
 import { Context } from "../../context/Context";
 import "./settings.css";
 import axios from "axios";
+import api from "../../API";
 
 export default function Settings() {
   const { user, dispatch } = useContext(Context);
@@ -24,12 +25,12 @@ export default function Settings() {
         data.append("name", filename);
         data.append("file", file);
         try {
-          await axios.post("/upload", data);
+          await api.post("/upload", data);
         } catch (err) {
           console.log(err);
         }
       }
-      const response = await axios.put("/users/" + user._id, {
+      const response = await api.put("/users/" + user._id, {
         userId: user._id,
         username: updateUserName,
         email: updateEmail,
